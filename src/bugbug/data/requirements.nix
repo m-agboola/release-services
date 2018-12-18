@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -C /app/src/bugbug/data/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -E blas -E gfortran -E libffi -E openssl -E pkgconfig -E freetype.dev -s numpy -e pytest-runner -e setuptools-scm -r requirements.txt -r requirements-dev.txt
+#   pypi2nix -v -C /tmp/release-services-gin8ulv1/src/bugbug/data/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -E blas -E gfortran -E libffi -E openssl -E pkgconfig -E freetype.dev -s numpy -e pytest-runner -e setuptools-scm -r requirements.txt -r requirements-dev.txt
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -260,10 +260,10 @@ let
     };
 
     "boto3" = python.mkDerivation {
-      name = "boto3-1.9.66";
+      name = "boto3-1.9.67";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/67/bd/87bafed166747263beec1daeb6545ba8b127a027931dc2d71609ee2bdec1/boto3-1.9.66.tar.gz";
-        sha256 = "0aef5adf904638bf9bc053efaf182d8dc8647d72d9d7974173b77eab29f67254";
+        url = "https://files.pythonhosted.org/packages/f6/4b/673e844d45c3d339baa145ef997b58847ef7760028feac4bbe1df1d81ac8/boto3-1.9.67.tar.gz";
+        sha256 = "a2f8c0cbb63abd5f1908f9b95a00916eba45144b13871c6b6cbd0ed365277077";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -282,10 +282,10 @@ let
     };
 
     "botocore" = python.mkDerivation {
-      name = "botocore-1.12.66";
+      name = "botocore-1.12.67";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/dc/69/5619d51944b4ebf2f2c60fd0ae2830b1951e3b01b2d285d52291369b116a/botocore-1.12.66.tar.gz";
-        sha256 = "25c39ecc71356287cf79d66981ec77deca374e28043b19b2f818d48aa34272a1";
+        url = "https://files.pythonhosted.org/packages/7a/fa/31de9805de92a54c81850cd2e6b2994f791cc5738e410a208af2c62299b7/botocore-1.12.67.tar.gz";
+        sha256 = "4a091f5296da00e4e552637101d5fa4f4c87fa888ee88e99e09127fe15176aec";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1773,10 +1773,10 @@ let
     };
 
     "scipy" = python.mkDerivation {
-      name = "scipy-1.1.0";
+      name = "scipy-1.2.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/07/76/7e844757b9f3bf5ab9f951ccd3e4a8eed91ab8720b0aac8c2adcc2fdae9f/scipy-1.1.0.tar.gz";
-        sha256 = "878352408424dffaa695ffedf2f9f92844e116686923ed9aa8626fc30d32cfd1";
+        url = "https://files.pythonhosted.org/packages/ea/c8/c296904f2c852c5c129962e6ca4ba467116b08cd5b54b7180b2e77fe06b2/scipy-1.2.0.tar.gz";
+        sha256 = "51a2424c8ed80e60bdb9a896806e7adaf24a58253b326fbad10f80a6d06f2214";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
