@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -C /home/rok/dev/mozilla/services/src/common/naming/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -e pytest-runner -e setuptools-scm -r requirements-dev.txt
+#   pypi2nix -v -C /tmp/release-services-ug4ij6ad/src/common/naming/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -e pytest-runner -e setuptools-scm -r requirements-dev.txt
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -89,10 +89,10 @@ let
 
   generated = self: {
     "Pygments" = python.mkDerivation {
-      name = "Pygments-2.3.0";
+      name = "Pygments-2.3.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/63/a2/91c31c4831853dedca2a08a0f94d788fc26a48f7281c99a303769ad2721b/Pygments-2.3.0.tar.gz";
-        sha256 = "82666aac15622bd7bb685a4ee7f6625dd716da3ef7473620c192c0168aae64fc";
+        url = "https://files.pythonhosted.org/packages/64/69/413708eaf3a64a6abb8972644e0f20891a55e621c6759e2c3f3891e05d63/Pygments-2.3.1.tar.gz";
+        sha256 = "5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -427,10 +427,10 @@ let
     };
 
     "idna" = python.mkDerivation {
-      name = "idna-2.7";
+      name = "idna-2.8";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz";
-        sha256 = "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16";
+        url = "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz";
+        sha256 = "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -503,10 +503,10 @@ let
     };
 
     "mypy" = python.mkDerivation {
-      name = "mypy-0.641";
+      name = "mypy-0.650";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/a1/b9/e2063c8f933c1cfebef5dcd7325e07b927cf5a5cef60772aaad5eb903a0f/mypy-0.641.tar.gz";
-        sha256 = "8e071ec32cc226e948a34bbb3d196eb0fd96f3ac69b6843a5aff9bd4efa14455";
+        url = "https://files.pythonhosted.org/packages/5a/e0/76ab298191fb1d32f50ddb1d0a012c16f493ba6e1b460cc0d351fcf7932a/mypy-0.650.tar.gz";
+        sha256 = "38d5b5f835a81817dcc0af8d155bce4e9aefa03794fe32ed154d6612e83feafa";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -640,10 +640,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-4.0.1";
+      name = "pytest-4.0.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/24/f1/0e378fa418d9ac15d2d28296be916a55e351a6ffeb74105fe333c15ea58a/pytest-4.0.1.tar.gz";
-        sha256 = "1d131cc532be0023ef8ae265e2a779938d0619bb6c2510f52987ffcba7fa1ee4";
+        url = "https://files.pythonhosted.org/packages/9d/a9/3688b67467527c25e7a4d02c3b22565f15158a0a5d681870bfda8af210c6/pytest-4.0.2.tar.gz";
+        sha256 = "f689bf2fc18c4585403348dd56f47d87780bf217c53ed9ae7a3e2d7faa45f8e9";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -709,10 +709,10 @@ let
     };
 
     "requests" = python.mkDerivation {
-      name = "requests-2.20.1";
+      name = "requests-2.21.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/40/35/298c36d839547b50822985a2cf0611b3b978a5ab7a5af5562b8ebe3e1369/requests-2.20.1.tar.gz";
-        sha256 = "ea881206e59f41dbd0bd445437d792e43906703fff75ca8ff43ccdb11f33f263";
+        url = "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz";
+        sha256 = "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -750,10 +750,10 @@ let
     };
 
     "six" = python.mkDerivation {
-      name = "six-1.11.0";
+      name = "six-1.12.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz";
-        sha256 = "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9";
+        url = "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz";
+        sha256 = "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -761,7 +761,7 @@ let
       buildInputs = commonBuildInputs ++ [ ];
       propagatedBuildInputs = [ ];
       meta = with pkgs.stdenv.lib; {
-        homepage = "http://pypi.python.org/pypi/six/";
+        homepage = "https://github.com/benjaminp/six";
         license = licenses.mit;
         description = "Python 2 and 3 compatibility utilities";
       };
@@ -786,10 +786,10 @@ let
     };
 
     "typed-ast" = python.mkDerivation {
-      name = "typed-ast-1.1.0";
+      name = "typed-ast-1.1.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/52/cf/2ebc7d282f026e21eed4987e42e10964a077c13cfc168b42f3573a7f178c/typed-ast-1.1.0.tar.gz";
-        sha256 = "57fe287f0cdd9ceaf69e7b71a2e94a24b5d268b35df251a88fef5cc241bf73aa";
+        url = "https://files.pythonhosted.org/packages/9d/f8/78010480255fc6a1e545d1e74389128c1a4f11905b9ab16a7ef6c956c704/typed-ast-1.1.1.tar.gz";
+        sha256 = "6cb25dc95078931ecbd6cbcc4178d1b8ae8f2b513ae9c3bd0b7f81c2191db4c6";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
