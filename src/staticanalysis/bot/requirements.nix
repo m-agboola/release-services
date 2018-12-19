@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -C /home/rok/dev/mozilla/services/src/staticanalysis/bot/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -E libffi -E openssl -E pkgconfig -E freetype.dev -e pytest-runner -e setuptools-scm -r requirements.txt -r requirements-dev.txt
+#   pypi2nix -v -C /tmp/release-services-xgmd8vfc/src/staticanalysis/bot/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -E libffi -E openssl -E pkgconfig -E freetype.dev -e pytest-runner -e setuptools-scm -r requirements.txt -r requirements-dev.txt
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -146,10 +146,10 @@ let
     };
 
     "Pygments" = python.mkDerivation {
-      name = "Pygments-2.3.0";
+      name = "Pygments-2.3.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/63/a2/91c31c4831853dedca2a08a0f94d788fc26a48f7281c99a303769ad2721b/Pygments-2.3.0.tar.gz";
-        sha256 = "82666aac15622bd7bb685a4ee7f6625dd716da3ef7473620c192c0168aae64fc";
+        url = "https://files.pythonhosted.org/packages/64/69/413708eaf3a64a6abb8972644e0f20891a55e621c6759e2c3f3891e05d63/Pygments-2.3.1.tar.gz";
+        sha256 = "5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -302,10 +302,10 @@ let
     };
 
     "boto3" = python.mkDerivation {
-      name = "boto3-1.9.59";
+      name = "boto3-1.9.68";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/8d/93/8395000623748648009b0b40a980b68deb72446b01598e1dbbe64b2a5ee1/boto3-1.9.59.tar.gz";
-        sha256 = "1bb0505de52201ed2f3bafe3b4b1539971a4b08ff048b9d804f6e04f017701fb";
+        url = "https://files.pythonhosted.org/packages/30/eb/5cbd83704d02de76bcba6b48ff9af02287c71c2ef4eec91ea5dcabf7dee3/boto3-1.9.68.tar.gz";
+        sha256 = "88233f9bdc1e6ee58c9489cef6c573bf7e660acfcc1597bc3ff765a065e1a0f0";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -324,10 +324,10 @@ let
     };
 
     "botocore" = python.mkDerivation {
-      name = "botocore-1.12.59";
+      name = "botocore-1.12.68";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/f5/1a/b50e770e7aadee4cf259782e4e7460d0ebe2613b5bacc0c1a8f4379d7766/botocore-1.12.59.tar.gz";
-        sha256 = "bcc4ae773091ed632eaf4a6d5bc46c6409659ce138158ec11904a931b21bd8f8";
+        url = "https://files.pythonhosted.org/packages/09/ab/dfc7c53d727e651561016d3b4fcdc95049c0d52f9e1a27f71c6c146a90d8/botocore-1.12.68.tar.gz";
+        sha256 = "7fd7954f19a49c9794bed696c801f3dfd7bdde306d17c9bb9fb0c069e6b42e5a";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -725,10 +725,10 @@ let
     };
 
     "idna" = python.mkDerivation {
-      name = "idna-2.7";
+      name = "idna-2.8";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz";
-        sha256 = "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16";
+        url = "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz";
+        sha256 = "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -905,10 +905,10 @@ let
     };
 
     "mypy" = python.mkDerivation {
-      name = "mypy-0.641";
+      name = "mypy-0.650";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/a1/b9/e2063c8f933c1cfebef5dcd7325e07b927cf5a5cef60772aaad5eb903a0f/mypy-0.641.tar.gz";
-        sha256 = "8e071ec32cc226e948a34bbb3d196eb0fd96f3ac69b6843a5aff9bd4efa14455";
+        url = "https://files.pythonhosted.org/packages/5a/e0/76ab298191fb1d32f50ddb1d0a012c16f493ba6e1b460cc0d351fcf7932a/mypy-0.650.tar.gz";
+        sha256 = "38d5b5f835a81817dcc0af8d155bce4e9aefa03794fe32ed154d6612e83feafa";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1098,10 +1098,10 @@ let
     };
 
     "pytest" = python.mkDerivation {
-      name = "pytest-4.0.1";
+      name = "pytest-4.0.2";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/24/f1/0e378fa418d9ac15d2d28296be916a55e351a6ffeb74105fe333c15ea58a/pytest-4.0.1.tar.gz";
-        sha256 = "1d131cc532be0023ef8ae265e2a779938d0619bb6c2510f52987ffcba7fa1ee4";
+        url = "https://files.pythonhosted.org/packages/9d/a9/3688b67467527c25e7a4d02c3b22565f15158a0a5d681870bfda8af210c6/pytest-4.0.2.tar.gz";
+        sha256 = "f689bf2fc18c4585403348dd56f47d87780bf217c53ed9ae7a3e2d7faa45f8e9";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1223,10 +1223,10 @@ let
     };
 
     "raven" = python.mkDerivation {
-      name = "raven-6.9.0";
+      name = "raven-6.10.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/8f/80/e8d734244fd377fd7d65275b27252642512ccabe7850105922116340a37b/raven-6.9.0.tar.gz";
-        sha256 = "3fd787d19ebb49919268f06f19310e8112d619ef364f7989246fc8753d469888";
+        url = "https://files.pythonhosted.org/packages/79/57/b74a86d74f96b224a477316d418389af9738ba7a63c829477e7a86dd6f47/raven-6.10.0.tar.gz";
+        sha256 = "3fa6de6efa2493a7c827472e984ce9b020797d0da16f1db67197bcc23c8fae54";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1241,10 +1241,10 @@ let
     };
 
     "requests" = python.mkDerivation {
-      name = "requests-2.20.1";
+      name = "requests-2.21.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/40/35/298c36d839547b50822985a2cf0611b3b978a5ab7a5af5562b8ebe3e1369/requests-2.20.1.tar.gz";
-        sha256 = "ea881206e59f41dbd0bd445437d792e43906703fff75ca8ff43ccdb11f33f263";
+        url = "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz";
+        sha256 = "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1284,10 +1284,10 @@ let
     };
 
     "responses" = python.mkDerivation {
-      name = "responses-0.10.4";
+      name = "responses-0.10.5";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/84/b7/a868941426ea5e9f8fd986dbf935c2068cb491d0e4de9fc4764952c9fb99/responses-0.10.4.tar.gz";
-        sha256 = "16ad4a7a914f20792111157adf09c63a8dc37699c57d1ad20dbc281a4f5743fb";
+        url = "https://files.pythonhosted.org/packages/c9/3b/bea0bfc243072a3d910befae4d1fb585276260abcac2a62109e01064c551/responses-0.10.5.tar.gz";
+        sha256 = "c85882d2dc608ce6b5713a4e1534120f4a0dc6ec79d1366570d2b0c909a50c87";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1497,10 +1497,10 @@ let
     };
 
     "typed-ast" = python.mkDerivation {
-      name = "typed-ast-1.1.0";
+      name = "typed-ast-1.1.1";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/52/cf/2ebc7d282f026e21eed4987e42e10964a077c13cfc168b42f3573a7f178c/typed-ast-1.1.0.tar.gz";
-        sha256 = "57fe287f0cdd9ceaf69e7b71a2e94a24b5d268b35df251a88fef5cc241bf73aa";
+        url = "https://files.pythonhosted.org/packages/9d/f8/78010480255fc6a1e545d1e74389128c1a4f11905b9ab16a7ef6c956c704/typed-ast-1.1.1.tar.gz";
+        sha256 = "6cb25dc95078931ecbd6cbcc4178d1b8ae8f2b513ae9c3bd0b7f81c2191db4c6";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -1575,10 +1575,10 @@ let
     };
 
     "yarl" = python.mkDerivation {
-      name = "yarl-1.2.6";
+      name = "yarl-1.3.0";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/43/b8/057c3e5b546ff4b24263164ecda13f6962d85c9dc477fcc0bcdcb3adb658/yarl-1.2.6.tar.gz";
-        sha256 = "c8cbc21bbfa1dd7d5386d48cc814fe3d35b80f60299cdde9279046f399c3b0d8";
+        url = "https://files.pythonhosted.org/packages/fb/84/6d82f6be218c50b547aa29d0315e430cf8a23c52064c92d0a8377d7b7357/yarl-1.3.0.tar.gz";
+        sha256 = "024ecdc12bc02b321bc66b41327f930d1c2c543fa9a561b39861da9388ba7aa9";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
