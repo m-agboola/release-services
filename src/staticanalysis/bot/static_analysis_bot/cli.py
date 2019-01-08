@@ -9,6 +9,7 @@ from cli_common.cli import taskcluster_options
 from cli_common.log import get_logger
 from cli_common.log import init_logger
 from cli_common.phabricator import PhabricatorAPI
+from cli_common.taskcluster import get_options
 from cli_common.taskcluster import get_secrets
 from cli_common.taskcluster import get_service
 from static_analysis_bot import AnalysisException
@@ -73,12 +74,15 @@ def main(source,
                 MOZDEF=secrets.get('MOZDEF'),
                 )
 
+    options = get_options(taskcluster_client_id, taskcluster_access_token)
+
     # Setup settings before stats
     settings.setup(
         secrets['APP_CHANNEL'],
         cache_root,
         secrets['PUBLICATION'],
         secrets['ALLOWED_PATHS'],
+        options['rootUrl']
     )
 
     # Setup statistics

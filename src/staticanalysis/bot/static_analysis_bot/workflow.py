@@ -21,7 +21,6 @@ from static_analysis_bot import INFER
 from static_analysis_bot import MOZLINT
 from static_analysis_bot import AnalysisException
 from static_analysis_bot import stats
-from static_analysis_bot.clang import setup as setup_clang
 from static_analysis_bot.clang.format import ClangFormat
 from static_analysis_bot.clang.tidy import ClangTidy
 from static_analysis_bot.config import REPO_UNIFIED
@@ -141,11 +140,52 @@ class Workflow(object):
             revision.analyze_patch()
 
         with stats.api.timer('runtime.mach'):
+            # Create mozilla state dir if doesn't exist
+            if not os.path.exists(os.environ['MOZBUILD_STATE_PATH']):
+                os.makedirs(os.environ['MOZBUILD_STATE_PATH'])
+
             # Only run mach if revision has any C/C++ or Java files
             if revision.has_clang_files:
 
+                logger.info('Using TaskCluster URL: {}'.format(settings.root_url))
+
                 # Mach pre-setup with mozconfig
                 try:
+                    mach_binary = os.path.join(settings.repo_dir, 'mach')
+                    env = os.environ.copy()
+                    if settings.root_url is not None:
+                        env['TASKCLUSTER_ROOT_URL'] = settings.root_url
+                        env['TASKCLUSTER_PROXY_URL'] = settings.root_url
+
+                    logger.info(
+                        "TASKCLUSTER_ROOT_URL: {}\nTASKCLUSTER_PROXY_URL: {}".
+                        format(env['TASKCLUSTER_ROOT_URL'],
+                               env['TASKCLUSTER_PROXY_URL']))
+
+                    logger.info(
+                        'Mach install clang from artifacts to {}'.format(
+                            os.environ['MOZBUILD_STATE_PATH']))
+                    with stats.api.timer('runtime.mach.install_clang'):
+                        run_check(
+                            [
+                                'gecko-env', mach_binary, 'artifact',
+                                'toolchain', '--from-build', 'linux64-clang'
+                            ],
+                            env=env,
+                            cwd=os.environ['MOZBUILD_STATE_PATH'])
+
+                    logger.info(
+                        'Mach install clang-tidy from artifacts to {}'.format(
+                            os.environ['MOZBUILD_STATE_PATH']))
+                    with stats.api.timer('runtime.mach.install_clang_tidy'):
+                        run_check(
+                            [
+                                'gecko-env', mach_binary, 'static-analysis',
+                                'install', '--minimal-install'
+                            ],
+                            env=env,
+                            cwd=settings.repo_dir)
+
                     logger.info('Mach configure...')
                     with stats.api.timer('runtime.mach.configure'):
                         run_check(['gecko-env', './mach', 'configure'], cwd=settings.repo_dir)
@@ -163,11 +203,6 @@ class Workflow(object):
                         run_check(['gecko-env', './mach', 'build', 'export'], cwd=settings.repo_dir)
                 except Exception as e:
                     raise AnalysisException('mach', str(e))
-
-                # Download clang build from Taskcluster
-                # Use new clang-tidy paths, https://bugzilla.mozilla.org/show_bug.cgi?id=1495641
-                logger.info('Setup Taskcluster clang build...')
-                setup_clang(repository='mozilla-inbound', revision='revision.874a07fdb045b725edc2aaa656a8620ff439ec10')
 
                 # Use clang-tidy & clang-format
                 if CLANG_TIDY in self.analyzers:

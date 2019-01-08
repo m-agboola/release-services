@@ -49,7 +49,10 @@ class Settings(object):
         self.repo_shared_dir = None
         self.taskcluster = None
 
-    def setup(self, app_channel, cache_root, publication, allowed_paths):
+        # Root URL for TC
+        self.root_url = None
+
+    def setup(self, app_channel, cache_root, publication, allowed_paths, root_url=None):
         self.app_channel = app_channel
         self.download({
             'cpp_extensions': frozenset(['.c', '.h', '.cpp', '.cc', '.cxx', '.hh', '.hpp', '.hxx', '.m', '.mm']),
@@ -81,6 +84,9 @@ class Settings(object):
         assert isinstance(allowed_paths, list)
         assert all(map(lambda p: isinstance(p, str), allowed_paths))
         self.allowed_paths = allowed_paths
+
+        # Set the root url for TC
+        self.root_url = root_url
 
     def __getattr__(self, key):
         if key not in self.config:
